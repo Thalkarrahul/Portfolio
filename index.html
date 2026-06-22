@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rahul Thalkar — Full-Stack Software Developer specializing in .NET, ASP.NET Core, Angular, and SQL Server. 3.6 years building scalable web applications." />
+  <meta name="author" content="Rahul Thalkar" />
+  <meta property="og:title" content="Rahul Thalkar — Full-Stack Developer" />
+  <meta property="og:description" content="Full-Stack Software Developer | .NET • Angular • SQL Server" />
+  <meta property="og:type" content="website" />
+  <title>Rahul Thalkar — Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
+</head>
+<body>
+  <!-- Progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="logo">Rahul<span class="logo-dot">.</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="resume.html">Resume</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-inner">
+        <p class="hero-eyebrow reveal">👋 Hi, I'm</p>
+        <h1 class="hero-title reveal">Rahul Thalkar</h1>
+        <h2 class="hero-subtitle reveal">
+          Full-Stack <span class="accent-text">Software Developer</span>
+        </h2>
+        <p class="hero-desc reveal">
+          I build scalable web applications with <strong>.NET</strong> and
+          <strong>Angular</strong>. 3.6 years of turning complex problems into
+          clean, maintainable solutions that drive business growth.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="resume.html" class="btn btn-ghost">📄 View Résumé</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat">
+            <span class="stat-num" data-count="3.6">0</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="11">0</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="15">0</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-hint" aria-label="Scroll down">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">01 — About</span>
+          <h2 class="section-title">Who I Am</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I am a passionate and dedicated <strong>Software Developer</strong>
+              with 3.6 years of professional experience developing scalable web
+              applications using .NET technologies and Angular.
+            </p>
+            <p>
+              I enjoy solving complex technical challenges, learning new
+              technologies, and delivering high-quality solutions. I strongly
+              believe in <strong>ownership</strong>, <strong>continuous learning</strong>,
+              <strong>teamwork</strong>, and writing clean, maintainable code.
+            </p>
+            <p>
+              I am adaptable, disciplined, and always eager to enhance both my
+              technical and interpersonal skills while contributing effectively
+              to organizational success.
+            </p>
+          </div>
+          <div class="about-cards reveal">
+            <div class="info-card">
+              <div class="info-icon">💼</div>
+              <h3>Backend &amp; APIs</h3>
+              <p>ASP.NET Core, Web API, EF Core, REST integrations</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">🎨</div>
+              <h3>Frontend</h3>
+              <p>Angular, React, TypeScript, Tailwind, Bootstrap</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">🗄️</div>
+              <h3>Database</h3>
+              <p>SQL Server design, optimization &amp; performance tuning</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">🚀</div>
+              <h3>DevOps</h3>
+              <p>IIS, Docker, Azure Functions, Git &amp; GitHub</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience / Roles -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">02 — Experience</span>
+          <h2 class="section-title">What I Do</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Full-Stack Development</h3>
+              <p>
+                End-to-end delivery: designing database schemas, building
+                ASP.NET Core Web APIs, and crafting responsive Angular
+                front-ends across multi-tenant and enterprise platforms.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>API Design &amp; Integration</h3>
+              <p>
+                Designed and integrated REST APIs, Azure Function middleware,
+                and third-party services for data synchronization between
+                business systems.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Workflows &amp; Business Logic</h3>
+              <p>
+                Implemented attendance, leave, approval, booking, and invoicing
+                workflows with role-based access control and multi-language
+                support.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Performance &amp; Production Support</h3>
+              <p>
+                Optimized database performance, resolved production issues, and
+                handled testing, deployment, and ongoing maintenance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">03 — Skills</span>
+          <h2 class="section-title">Technologies &amp; Tools</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3>Backend</h3>
+            <div class="chips">
+              <span class="chip">ASP.NET Core</span>
+              <span class="chip">ASP.NET MVC</span>
+              <span class="chip">Web API</span>
+              <span class="chip">Entity Framework Core</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">Azure Functions</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Frontend</h3>
+            <div class="chips">
+              <span class="chip">Angular</span>
+              <span class="chip">React</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">Bootstrap</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Database</h3>
+            <div class="chips">
+              <span class="chip">SQL Server</span>
+              <span class="chip">Database Design</span>
+              <span class="chip">Performance Tuning</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Tools &amp; DevOps</h3>
+            <div class="chips">
+              <span class="chip">Git &amp; GitHub</span>
+              <span class="chip">Docker</span>
+              <span class="chip">IIS</span>
+              <span class="chip">Authentication &amp; Authorization</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Languages</h3>
+            <div class="lang-list">
+              <div class="lang-item">
+                <span class="lang-name">Gujarati <small>Native</small></span>
+                <span class="lang-dots" data-score="5"></span>
+              </div>
+              <div class="lang-item">
+                <span class="lang-name">Hindi <small>Fluent</small></span>
+                <span class="lang-dots" data-score="4"></span>
+              </div>
+              <div class="lang-item">
+                <span class="lang-name">English <small>Basic</small></span>
+                <span class="lang-dots" data-score="2"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">04 — Projects</span>
+          <h2 class="section-title">Selected Work</h2>
+          <p class="section-sub">A collection of platforms I've designed and built. Filter by technology.</p>
+        </div>
+
+        <div class="filter-bar reveal" id="filterBar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ASP.NET Core">ASP.NET Core</button>
+          <button class="filter-btn" data-filter="Angular">Angular</button>
+          <button class="filter-btn" data-filter="EF Core">EF Core</button>
+          <button class="filter-btn" data-filter="SQL Server">SQL Server</button>
+          <button class="filter-btn" data-filter="Azure">Azure</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"><!-- injected by script.js --></div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">05 — Education</span>
+          <h2 class="section-title">Academic Background</h2>
+        </div>
+        <div class="edu-grid">
+          <div class="edu-card reveal">
+            <div class="edu-badge">MCA</div>
+            <h3>Master of Computer Applications</h3>
+            <p class="edu-org">Ganpat University</p>
+            <p class="edu-meta">Sep 2021 – May 2023 · CGPA 8.11</p>
+          </div>
+          <div class="edu-card reveal">
+            <div class="edu-badge">BCA</div>
+            <h3>Bachelor of Computer Applications</h3>
+            <p class="edu-org">Hemchandracharya North Gujarat University</p>
+            <p class="edu-meta">Jul 2018 – Jun 2021 · CGPA 8.72</p>
+          </div>
+          <div class="edu-card reveal">
+            <div class="edu-badge">HSC</div>
+            <h3>Higher Secondary Certificate</h3>
+            <p class="edu-org">Shah G.M.D. Sarv. High School, Motapondha</p>
+            <p class="edu-meta">Jun 2016 – Mar 2018 · 66.14%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <span class="section-tag">06 — Contact</span>
+          <h2 class="section-title">Let's Build Something</h2>
+          <p class="contact-sub">
+            I'm open to new opportunities and collaborations. Drop a message and
+            I'll get back to you.
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:your.email@example.com" class="btn btn-primary">✉️ Email Me</a>
+            <a href="resume.html?print=1" class="btn btn-ghost">⬇️ Download CV</a>
+            <a href="https://github.com/" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Rahul Thalkar. Built with HTML, CSS &amp; JS.</span>
+      <a href="#hero" class="back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

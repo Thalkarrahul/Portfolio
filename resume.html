@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rahul Thalkar — Résumé</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
+  <style>
+    :root {
+      --ink: #1a2233;
+      --ink-soft: #46536b;
+      --muted: #6b7689;
+      --accent: #0d9488;
+      --line: #d9dee8;
+      --page: #ffffff;
+      --bg: #eef1f6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 16px 80px;
+    }
+
+    /* ---- Floating toolbar (hidden in print) ---- */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(20, 27, 42, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 50;
+    }
+    .tb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font: 600 0.9rem "Inter", sans-serif;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .tb-btn:hover { transform: translateY(-1px); }
+    .tb-primary { background: var(--accent); color: #fff; }
+    .tb-ghost { background: transparent; color: #cfd6e4; border-color: #3a465f; }
+
+    /* ---- Page sheet (A4-ish) ---- */
+    .sheet {
+      width: 100%;
+      max-width: 820px;
+      margin: 56px auto 0;
+      background: var(--page);
+      box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.25);
+      padding: 48px 52px;
+      border-radius: 6px;
+    }
+
+    /* ---- Header ---- */
+    .r-head { border-bottom: 2px solid var(--ink); padding-bottom: 18px; }
+    .r-name { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; }
+    .r-role { font-size: 1.05rem; color: var(--accent); font-weight: 600; margin-top: 2px; }
+    .r-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+    .r-contact a { color: var(--ink-soft); text-decoration: none; }
+    .r-contact span::before { content: "•"; margin-right: 18px; color: var(--line); }
+    .r-contact span:first-child::before { content: none; }
+
+    /* ---- Sections ---- */
+    .r-section { margin-top: 24px; }
+    .r-section h2 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+    }
+    .r-summary { font-size: 0.92rem; color: var(--ink-soft); }
+
+    /* ---- Skills ---- */
+    .skill-row { display: flex; gap: 10px; margin-bottom: 7px; font-size: 0.88rem; }
+    .skill-row strong { flex: 0 0 130px; color: var(--ink); }
+    .skill-row span { color: var(--ink-soft); }
+
+    /* ---- Experience / Projects ---- */
+    .job { margin-bottom: 16px; }
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .job-title { font-size: 0.98rem; font-weight: 700; }
+    .job-meta { font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+    .job-sub { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+    .job ul { list-style: none; margin-top: 4px; }
+    .job li {
+      font-size: 0.87rem;
+      color: var(--ink-soft);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+    .job li::before { content: "▪"; position: absolute; left: 0; color: var(--accent); }
+
+    /* ---- Projects compact grid ---- */
+    .proj { margin-bottom: 13px; }
+    .proj-name { font-size: 0.95rem; font-weight: 700; }
+    .proj-name .tag { font-size: 0.72rem; font-weight: 500; color: var(--muted); }
+    .proj-desc { font-size: 0.85rem; color: var(--ink-soft); }
+    .proj-tech { font-size: 0.76rem; color: var(--accent); margin-top: 2px; }
+
+    /* ---- Education ---- */
+    .edu-item { margin-bottom: 10px; }
+    .edu-item .job-title { font-size: 0.92rem; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; }
+
+    /* ---- Language ratings ---- */
+    .lang-row { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; font-size: 0.88rem; }
+    .lang-row strong { flex: 0 0 110px; color: var(--ink); }
+    .lang-row .level { flex: 0 0 70px; color: var(--muted); font-size: 0.8rem; }
+    .ldots { display: inline-flex; gap: 5px; }
+    .ldots i {
+      width: 10px; height: 10px; border-radius: 50%;
+      border: 1.5px solid var(--accent); display: inline-block;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .ldots i.on { background: var(--accent); border-color: var(--accent); }
+
+    /* ===================== PRINT ===================== */
+    @media print {
+      @page { size: A4; margin: 14mm 14mm; }
+      body { background: #fff; padding: 0; }
+      .toolbar { display: none !important; }
+      .sheet {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .job, .proj, .edu-item { page-break-inside: avoid; }
+      .r-section { page-break-inside: avoid; }
+      a { color: var(--ink-soft) !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="tb-btn tb-primary" onclick="window.print()">⬇️ Download PDF</button>
+    <a class="tb-btn tb-ghost" href="index.html">← Back to Portfolio</a>
+  </div>
+
+  <div class="sheet">
+    <!-- Header -->
+    <header class="r-head">
+      <div class="r-name">Rahul Thalkar</div>
+      <div class="r-role">Full-Stack Software Developer · .NET &amp; Angular</div>
+      <div class="r-contact">
+        <span><a href="mailto:your.email@example.com">your.email@example.com</a></span>
+        <span>+91 00000 00000</span>
+        <span>Gujarat, India</span>
+        <span><a href="https://github.com/">GitHub</a></span>
+        <span><a href="https://www.linkedin.com/">LinkedIn</a></span>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="r-section">
+      <h2>Professional Summary</h2>
+      <p class="r-summary">
+        Passionate Software Developer with 3.6 years of professional experience
+        building scalable web applications using .NET technologies and Angular.
+        Skilled across the full stack — API design, database development, and
+        responsive front-ends. Strong believer in ownership, clean code, and
+        continuous learning, with a track record of delivering enterprise and
+        multi-tenant platforms across healthcare, finance, and workforce domains.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section class="r-section">
+      <h2>Technical Skills</h2>
+      <div class="skill-row"><strong>Backend</strong><span>ASP.NET Core, ASP.NET MVC, Web API, Entity Framework Core, REST APIs, Azure Functions</span></div>
+      <div class="skill-row"><strong>Frontend</strong><span>Angular, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Bootstrap</span></div>
+      <div class="skill-row"><strong>Database</strong><span>SQL Server, Database Design &amp; Development, Performance Optimization</span></div>
+      <div class="skill-row"><strong>Tools &amp; DevOps</strong><span>Git &amp; GitHub, Docker, IIS, Azure</span></div>
+      <div class="skill-row"><strong>Practices</strong><span>Full-Stack Development, API Integration, Authentication &amp; Authorization, Debugging &amp; Troubleshooting</span></div>
+    </section>
+
+    <!-- Experience -->
+    <section class="r-section">
+      <h2>Professional Experience</h2>
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Software Developer</span>
+          <span class="job-meta">3.6 Years</span>
+        </div>
+        <div class="job-sub">Full-Stack Development · .NET &amp; Angular</div>
+        <ul>
+          <li>Developed and maintained Angular modules and ASP.NET Core Web APIs across multiple enterprise and multi-tenant platforms.</li>
+          <li>Designed database schemas and business logic; optimized SQL Server performance and resolved production issues.</li>
+          <li>Implemented attendance, leave, booking, approval, and invoicing workflows with role-based access control.</li>
+          <li>Built REST and Azure Function integrations for data synchronization between business systems.</li>
+          <li>Performed testing, deployment (IIS / Docker), and ongoing production support.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="r-section">
+      <h2>Key Projects</h2>
+
+      <div class="proj">
+        <div class="proj-name">Smart Crowding <span class="tag">— Hospital coordination (multi-tenant)</span></div>
+        <div class="proj-desc">Cloud platform for real-time patient flow monitoring, automated action plans, and interactive dashboards.</div>
+        <div class="proj-tech">ASP.NET Core · Angular · SQL Server · EF Core · Tailwind CSS</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-name">Ekkom <span class="tag">— Workspace booking platform</span></div>
+        <div class="proj-desc">Desk, room, and resource booking with real-time availability and approval workflows.</div>
+        <div class="proj-tech">ASP.NET Core · Angular · SQL Server · EF Core · Bootstrap</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-name">Vendor Portal <span class="tag">— B2B vendor management</span></div>
+        <div class="proj-desc">Invoice upload/validation, purchase order management, and audit logging.</div>
+        <div class="proj-tech">ASP.NET Core · ASP.NET MVC · SQL Server · EF Core</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-name">ANM <span class="tag">— Workforce &amp; attendance</span></div>
+        <div class="proj-desc">Attendance, leave, and Miss-Punch management with approval workflows and analytics.</div>
+        <div class="proj-tech">ASP.NET Core · Angular · SQL Server · EF Core</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-name">Invoice Management System <span class="tag">— Billing &amp; finance</span></div>
+        <div class="proj-desc">Invoice generation, payment tracking, multi-currency support, and financial reporting.</div>
+        <div class="proj-tech">ASP.NET Core · Angular · SQL Server · EF Core</div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-name">Other Projects</div>
+        <div class="proj-desc">Sneh Vivaah (matrimony), Cousin Middleware (data sync), Email Management Service, Feedback360, PowerPal, Massive Akkon.</div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="r-section">
+      <h2>Education</h2>
+      <div class="edu-item">
+        <div class="job-head">
+          <span class="job-title">Master of Computer Applications (MCA)</span>
+          <span class="job-meta">Sep 2021 – May 2023</span>
+        </div>
+        <div class="job-sub">Ganpat University · CGPA 8.11</div>
+      </div>
+      <div class="edu-item">
+        <div class="job-head">
+          <span class="job-title">Bachelor of Computer Applications (BCA)</span>
+          <span class="job-meta">Jul 2018 – Jun 2021</span>
+        </div>
+        <div class="job-sub">Hemchandracharya North Gujarat University · CGPA 8.72</div>
+      </div>
+      <div class="edu-item">
+        <div class="job-head">
+          <span class="job-title">Higher Secondary Certificate (HSC)</span>
+          <span class="job-meta">Jun 2016 – Mar 2018</span>
+        </div>
+        <div class="job-sub">Shah G.M.D. Sarv. High School, Motapondha · 66.14%</div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="r-section">
+      <h2>Languages</h2>
+      <div class="lang-row">
+        <strong>Gujarati</strong>
+        <span class="ldots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+        <span class="level">Native</span>
+      </div>
+      <div class="lang-row">
+        <strong>Hindi</strong>
+        <span class="ldots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+        <span class="level">Fluent</span>
+      </div>
+      <div class="lang-row">
+        <strong>English</strong>
+        <span class="ldots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+        <span class="level">Basic</span>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Allow ?print=1 to auto-open the print dialog (e.g. a "Download CV" deep link)
+    if (new URLSearchParams(location.search).get("print") === "1") {
+      window.addEventListener("load", () => setTimeout(() => window.print(), 400));
+    }
+  </script>
+</body>
+</html>
